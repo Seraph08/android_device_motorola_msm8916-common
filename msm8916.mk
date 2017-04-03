@@ -79,6 +79,10 @@ PRODUCT_PACKAGES += \
     libbson \
     SnapdragonCamera
 
+# Doze
+PRODUCT_PACKAGES += \
+    Doze
+
 # Display
 PRODUCT_PACKAGES += \
     gralloc.msm8916 \
