@@ -47,7 +47,6 @@ BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_SOURCE := kernel/motorola/msm8916
-TARGET_KERNEL_CROSS_COMPILE_PREFIX :=$(PWD)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/bin/arm-eabi-
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
@@ -67,6 +66,10 @@ TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_NO_CHARGER_LED := true
+
+# CMHW
+BOARD_USES_CYANOGEN_HARDWARE := true
+BOARD_HARDWARE_CLASS += hardware/cyanogen/cmhw
 
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true

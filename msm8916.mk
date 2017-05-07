@@ -79,9 +79,9 @@ PRODUCT_PACKAGES += \
     libbson \
     SnapdragonCamera
 
-# Doze
+# CMActions
 PRODUCT_PACKAGES += \
-    Doze
+    CMActions
 
 # Display
 PRODUCT_PACKAGES += \
@@ -90,9 +90,9 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8916 \
     memtrack.msm8916
 
-# CMActions
+# Doze
 PRODUCT_PACKAGES += \
-    CMActions
+    Doze
 
 # Ebtables
 PRODUCT_PACKAGES += \
@@ -204,4 +204,12 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     kernel/motorola/msm8916/drivers/staging/prima/firmware_bin/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
-    kernel/motorola/msm8916/drivers/staging/prima/firmware_bin/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.in
+    kernel/motorola/msm8916/drivers/staging/prima/firmware_bin/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini
+
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+
+PRODUCT_GMS_CLIENTID_BASE := android-motorola
+
+$(call inherit-product-if-exists, vendor/motorola/msm8916-common/msm8916-common-vendor.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, vendor/aosp/common.mk)
