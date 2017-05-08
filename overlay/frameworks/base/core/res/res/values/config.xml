@@ -255,4 +255,8 @@
     <add-resource type="bool" name="config_HICEnabledDefault"></add-resource>
     <bool name="config_HICEnabledDefault">false</bool>
 
+    <!-- Whether to intercept inputs on screen off. -->
+    <add-resource type="bool" name="config_enableKeyHandler"></add-resource>
+    <bool name="config_enableKeyHandler">true</bool>
+
 </resources>
