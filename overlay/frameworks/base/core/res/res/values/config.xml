@@ -252,6 +252,7 @@
     <integer name="config_proximityCheckTimeout">300</integer>
 
     <!-- Whether to enable HumanInteractionController by default -->
+    <add-resource type="bool" name="config_HICEnabledDefault"></add-resource>
     <bool name="config_HICEnabledDefault">false</bool>
 
 </resources>
