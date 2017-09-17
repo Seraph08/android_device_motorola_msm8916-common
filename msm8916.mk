@@ -76,7 +76,7 @@ PRODUCT_COPY_FILES +=  \
 PRODUCT_PACKAGES += \
     camera.msm8916 \
     libbson \
-    Snap
+    ParanoidCamera
 
 # CMActions
 PRODUCT_PACKAGES += \
@@ -150,9 +150,12 @@ PRODUCT_PACKAGES += \
     libOmxVidcCommon \
     libstagefrighthw
 
-# Power
-PRODUCT_PACKAGES += \
-    power.msm8916
+# When can normal compile this module,  need module owner enable below commands
+# Add the overlay path
+PRODUCT_PACKAGE_OVERLAYS := $(QCPATH)/qrdplus/Extension/res \
+        $(QCPATH)/qrdplus/globalization/multi-language/res-overlay \
+        $(PRODUCT_PACKAGE_OVERLAYS)
+
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -170,9 +173,13 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PACKAGES += \
-    libcnefeatureconfig \
     librmnetctl \
-    libxml2
+    libxml2 \
+    libcnefeatureconfig \
+    libprotobuf-cpp-full
+
+PRODUCT_PACKAGES += telephony-ext
+PRODUCT_PACKAGES += tcmiface
 
 # Thermal
 PRODUCT_COPY_FILES += \
@@ -208,5 +215,5 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
 $(call inherit-product-if-exists, vendor/motorola/msm8916-common/msm8916-common-vendor.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+$(call inherit-product, vendor/aosp/common.mk)
